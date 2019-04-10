@@ -1,3 +1,61 @@
-.texts {
-    text-transform: uppercase;
+$borderColor    : #DEDEDE;
+$borderGradient : linear-gradient(to bottom, #ffffff 0%,$borderColor 25%,$borderColor 25%,$borderColor 100%) 1 100%;
+.box {
+    border-width: 0 1px;
+    border-style: solid;
+    border-image: $borderGradient;
+    min-width: 74px;
+    float: left;
+}
+.upSection {
+    border-bottom: 1px solid $borderColor;
+    color: #4A4A4A;
+    width: 100%;
+    text-align: left;
+
+    .monthName {
+        font-family: "Avenir Next";
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        line-height: 14px;
+        padding: 15px 4px 4px 4px;
+    }
+}
+.bottomSection {
+    border-bottom: 1px solid $borderColor;
+    position: relative;
+    z-index: 0;
+
+    .textsBlock {
+        padding: 32px 4px 4px 4px;
+        position: relative;
+        .textDocuments {
+            color: #9B9B9B;
+            font-family: "Avenir Next";
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 14px;
+            margin-bottom: 3px;
+            z-index: 1;
+        }
+        .textImporto {
+            color: #4A90E2;
+            font-family: "Avenir Next";
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 14px;
+            z-index: 1;
+        }
+    }
+
+    .capacityLevel {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to bottom, rgba(144,237,54,0.18000000715255737) 0%,rgba(48,187,55,0.18000000715255737) 100%);;
+        transition: 800ms height cubic-bezier(0.78, 0, 0.21, 1);
+    }
 }
