@@ -1,5 +1,5 @@
 import React from 'react';
-import Month from './Month.js';
+import Month from '../Month';
 
 class MonthsList extends React.Component {
 	constructor(props) {
@@ -9,7 +9,12 @@ class MonthsList extends React.Component {
 		};
 	}
 	render() {
-		return this.props.months.map((month,index) => (<Month value={month} key={index} />));
+		return this.props.months.map((month,index) => (
+			<Month 
+			documenti={month.documenti} 
+			importo={month.importo} 
+			key={index} />
+		));
 	}
 }
 

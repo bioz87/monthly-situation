@@ -1,5 +1,5 @@
 import React from 'react';
-import MonthsList from './MonthsList.js';
+import MonthsList from '../MonthsList/';
 
 class AndamentoMensile extends React.Component {
 	constructor(props) {
