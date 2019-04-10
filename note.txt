@@ -1,0 +1,4 @@
+TESTO   --> http://recruiting.fattureincloud.it/testfrontend/testo.pdf
+ENDPOINT--> http://staccah.fattureincloud.it/testfrontend/data.json
+GRAFICA --> https://marvelapp.com/8bh50ag/screen/55278081/handoff
+DEMO    --> http://staccah.fattureincloud.it/testfrontend/demo.mov
