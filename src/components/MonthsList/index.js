@@ -4,8 +4,7 @@ import Month 	from '../Month';
 import styles   from './MonthsList.module.scss';
 import { SelectableGroup, createSelectable } from 'react-selectable-fast';
 
-const SelectableMonth = createSelectable(({ selectableRef, selected, selecting, month, capacity, index }) => (
-	
+const SelectableMonth = createSelectable(({ selectableRef, selected, selecting, month, capacity, index}) => (
 	<div ref={selectableRef}>
 		<Month
 			documenti={month.documenti}
@@ -21,6 +20,8 @@ const SelectableMonth = createSelectable(({ selectableRef, selected, selecting, 
 class MonthsList extends Component {
 	constructor(props) {
 		super(props);
+		this.handleSelecting 	= props.handleSelecting;
+		this.handleSelected 	= props.handleSelected;
 		this.state = {
 			months: props.months.slice(0, 12)
 		};
@@ -33,32 +34,17 @@ class MonthsList extends Component {
 		}
 	}
 
-	handleSelecting = selectingItems => {
-		console.log(selectingItems)
-	}
-
-	handleSelectionFinish = selectedItems => {
-		console.log(selectedItems);
-	}
-
-	handleSelectionClear() {
-		console.log('Cancel selection'); // eslint-disable-line no-console
-	}
-
 	render() {
 		var monthsMaxImporto = _.max(this.state.months, m => m.importo).importo;
 		return (
 			<SelectableGroup
 			ref={ref => (window.selectableGroup = ref)}
 			className={styles.list}
-			clickClassName="tick"
-			tolerance={0}
-			deselectOnEsc={false}
-			globalMouse={false}
-			allowClickWithoutSelected={false}
+			enableDeselect={true}
+			mixedDeselect={true}
+			resetOnStart={true}
 			duringSelection={this.handleSelecting}
-			onSelectionClear={this.handleSelectionClear}
-			onSelectionFinish={this.handleSelectionFinish}>
+			onSelectionFinish={this.handleSelected}>
 				{this.state.months.map((month, index) => (
 					<SelectableMonth
 						key={index + 1}

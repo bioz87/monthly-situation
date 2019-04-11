@@ -35,11 +35,13 @@ class Month extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		if (
-            prevProps.documenti     !== this.props.documenti        || 
-            prevProps.importo       !== this.props.importo          || 
-            prevProps.monthNumber   !== this.props.monthNumber      ||
-            prevProps.capacity      !== this.props.capacity         ||
-            prevProps.status        !== this.props.status
+            prevProps.documenti                 !== this.props.documenti        || 
+            prevProps.importo                   !== this.props.importo          || 
+            prevProps.monthNumber               !== this.props.monthNumber      ||
+            prevProps.capacity                  !== this.props.capacity         ||
+            prevProps.status                    !== this.props.status                       ||
+            prevProps.isFirstInSelection        !== this.props.isFirstInSelection           ||
+            prevProps.isLastInSelection         !== this.props.isLastInSelection
         ) {
 			this.setState(_.extend({},this.props));
 		}

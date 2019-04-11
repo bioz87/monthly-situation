@@ -40,6 +40,14 @@ storiesOf('Month', Month)
             'Novembre' : 11,
             'Dicembre' : 12
         },1)}
+        isFirstInSelection={select('isFirstInSelection',{
+            'No' : false,
+            'Yes' : true
+        },false)}
+        isLastInSelection={select('isLastInSelection',{
+            'No' : false,
+            'Yes' : true
+        },false)}
         status={select('Status',{
             'None' : 0,
             'Selecting' : 1,

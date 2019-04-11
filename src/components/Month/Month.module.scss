@@ -13,18 +13,49 @@ $borderGradient : linear-gradient(to bottom, #ffffff 0%,$borderColor 25%,$border
         content: " ";
         position: absolute;
         bottom: -5px;
-        width: 100%;
+        left: -2px;
+        width: calc(100% + 4px);
         height: 3px;
-        border-radius: 1.5px;
+        //border-radius: 1.5px;
+        background-color: transparent;
+        //transition: 80ms background-color ease-in-out;
     }
-    &.selecting {
+
+    &.selecting,
+    &:active{
         &:after {
             background-color: #7ED321;
+        }
+
+        &:first-child {
+            &:after {
+                border-top-left-radius: 1.5px;
+                border-bottom-left-radius: 1.5px;
+            }
+        }
+        &:last-child {
+            &:after {
+                border-top-right-radius: 1.5px;
+                border-bottom-right-radius: 1.5px;
+            }
         }
     }
     &.selected {
         &:after {
             background-color: #1cb345;
+        }
+
+        &:first-child {
+            &:after {
+                border-top-left-radius: 1.5px;
+                border-bottom-left-radius: 1.5px;
+            }
+        }
+        &:last-child {
+            &:after {
+                border-top-right-radius: 1.5px;
+                border-bottom-right-radius: 1.5px;
+            }
         }
     }
 }
