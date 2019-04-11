@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/storybook__addon-knobs": "^4.0.5",
+    "@simonwep/selection-js": "^0.2.1",
     "currency-formatter": "^1.5.3",
     "node-sass": "^4.11.0",
+    "npm": "^6.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
+    "react-selectable-fast": "^2.2.2",
     "underscore": "^1.9.1"
   },
   "scripts": {
@@ -35,6 +37,10 @@
     "@storybook/addon-links": "^5.0.6",
     "@storybook/addons": "^5.0.6",
     "@storybook/react": "^5.0.6",
-    "babel-loader": "^8.0.5"
+    "@types/storybook__addon-knobs": "^4.0.5",
+    "babel-loader": "^8.0.5",
+    "react-selectable": "^2.0.1",
+    "react-selectable-fast": "^2.2.2",
+    "react-selection": "^0.1.0"
   }
 }

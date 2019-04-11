@@ -1,6 +1,7 @@
 import React    from 'react';
 import _        from 'underscore';
 import styles   from './Month.module.scss';
+
 class Month extends React.Component {
     
     static get monthsList() { 
@@ -21,10 +22,29 @@ class Month extends React.Component {
     }
 
 	constructor(props) {
-		super(props);
-		this.state = props;
+        super(props);
+        this.state = props;
+        this.timeoutId = setTimeout(function () {
+            this.setState({animated: true});
+        }.bind(this), 300);
     }
-    
+
+    componentWillUnmount() {
+        clearTimeout(this.timeoutId);
+    }
+
+	componentDidUpdate(prevProps) {
+		if (
+            prevProps.documenti     !== this.props.documenti        || 
+            prevProps.importo       !== this.props.importo          || 
+            prevProps.monthNumber   !== this.props.monthNumber      ||
+            prevProps.capacity      !== this.props.capacity         ||
+            prevProps.status        !== this.props.status
+        ) {
+			this.setState(_.extend({},this.props));
+		}
+    }
+
     getMonthName() {
         if(this.state.monthNumber>0 && this.state.monthNumber<Month.monthsList.length+1)
         {
@@ -36,17 +56,6 @@ class Month extends React.Component {
         }
     }
 
-	componentDidUpdate(prevProps) {
-		if (
-            prevProps.documenti     !== this.props.documenti        || 
-            prevProps.importo       !== this.props.importo          || 
-            prevProps.monthNumber   !== this.props.monthNumber      ||
-            prevProps.capacity      !== this.props.capacity
-        ) {
-			this.setState(_.extend({},this.props));
-		}
-	}
-
 	getFormattedImporto() {
 		return new Intl.NumberFormat('it-IT', {
 			style: 'currency',
@@ -55,16 +64,29 @@ class Month extends React.Component {
             maximumFractionDigits: 2
 		}).format(this.state.importo);
     }
+
     getCapacity() {
         if(this.state.capacity>100)
             return 100;
         if(this.state.capacity<0)
             return 0;
-        return this.state.capacity;
+        return !this.state.animated ? 0 : this.state.capacity;
     }
+
+    getStatus() {
+        let status = '';
+        switch(this.state.status) {
+            case 0: status = ''; break;
+            case 1: status = styles.selecting; break;
+            case 2: status = styles.selected; break;
+            default: status = '';
+        }
+        return status;
+    }
+
 	render() {
 		return (
-            <div className={styles.box}>
+            <div className={[styles.box, this.getStatus()].join(' ')} onPointerDown={this.onMouseDown}>
                 <div className={styles.upSection}>
                     <div className={styles.monthName}>{this.getMonthName()}</div>
                 </div>

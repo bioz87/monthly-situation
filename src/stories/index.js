@@ -39,4 +39,9 @@ storiesOf('Month', Month)
             'Ottobre' : 10,
             'Novembre' : 11,
             'Dicembre' : 12
-        },1)} />)
+        },1)}
+        status={select('Status',{
+            'None' : 0,
+            'Selecting' : 1,
+            'Selected' : 2
+        },0)} />)
