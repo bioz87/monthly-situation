@@ -1,7 +1,6 @@
-import React from 'react';
-import MonthsList from '../MonthsList/';
-import styles   from './AndamentoMensile.module.scss';
-import { isRegExp } from 'util';
+import React 		from 'react';
+import MonthsList 	from '../MonthsList/';
+import styles   	from './AndamentoMensile.module.scss';
 
 class AndamentoMensile extends React.Component {
 	constructor(props) {

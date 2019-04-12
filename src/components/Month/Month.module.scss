@@ -8,6 +8,7 @@ $borderGradient : linear-gradient(to bottom, #ffffff 0%,$borderColor 25%,$border
     float: left;
     position: relative;
     cursor: pointer;
+    margin-bottom: 10px;
 
     &:after {
         content: " ";

@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import _ 		from 'underscore';
 import Month 	from '../Month';
 import styles   from './MonthsList.module.scss';
