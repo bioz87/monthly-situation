@@ -2,6 +2,7 @@
   "name": "andamento-mensile",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bioz87.github.io/monthly-situation/",
   "dependencies": {
     "@simonwep/selection-js": "^0.2.1",
     "currency-formatter": "^1.5.3",
@@ -19,7 +20,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
